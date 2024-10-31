@@ -1,5 +1,7 @@
 # Norebase Frontend Developer Task
 
+![image](https://github.com/user-attachments/assets/2a9b5c3d-36bb-460b-a33d-7aed4b7adf27)
+
 ## Introduction
 
 This project was built with:
