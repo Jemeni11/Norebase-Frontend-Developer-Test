@@ -44,10 +44,10 @@ export default function App() {
   }, []);
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-[#dcdcdc]">
+    <main className="flex min-h-screen items-center justify-center bg-[#dcdcdc]">
       {state.status === "loading" && <LoadingSpinner />}
       {state.status === "success" && <Table data={state.data.data} />}
       {state.status === "failure" && <p>Error: {state.error}</p>}
-    </div>
+    </main>
   );
 }
