@@ -1,9 +1,8 @@
-# ReactViteTS (Vite + React + TypeScript + TailwindCSS + Prettier + ESLint)
+# Norebase Frontend Developer Task
 
 ## Introduction
 
-Hey!
-This is a vite template with the following installed:
+This project was built with:
 
 - [Vite 5.4.1](https://vitejs.dev/)
 - [React 18.3.1](https://react.dev/)
@@ -15,33 +14,25 @@ This is a vite template with the following installed:
 
 ## Installation
 
-You can either:
+Clone the repo and run `pnpm install` in the root directory
 
-- Clone the repo and run `pnpm install` in the root directory
+Bash:
 
-  Bash:
-  
-  ```bash
-  git clone https://github.com/Jemeni11/ReactViteTS.git && cd ReactViteTS && pnpm install
-  ```
+```bash
+git clone https://github.com/Jemeni11/Norebase-Frontend-Developer-Test.git Norebase && cd Norebase && pnpm install
+```
 
-  Powershell:
-  
-  ```powershell
-  git clone https://github.com/Jemeni11/ReactViteTS.git; cd ReactViteTS; pnpm install
-  ```
+Powershell:
 
-  <br/>
-  <br/>
+```powershell
+git clone https://github.com/Jemeni11/Norebase-Frontend-Developer-Test.git Norebase; cd Norebase; pnpm install
+```
 
-- Or click on the `use this template` button and pick whatever option you prefer
+## Lighthouse
 
-  <br/>
-  <br/>
+![image](https://github.com/user-attachments/assets/55eee92c-8389-4426-8110-57d3da0f6352)
 
-  <img width="945" alt="Screenshot of this repo's github page" src="https://github.com/user-attachments/assets/bc779b76-8c38-451f-91f3-6712ebff2860">
-
-## Wait a minute, who are you?
+## Credits
 
 Hello there! I'm Emmanuel Jemeni, and I work as a Frontend Developer. You can find me on various platforms:
 
