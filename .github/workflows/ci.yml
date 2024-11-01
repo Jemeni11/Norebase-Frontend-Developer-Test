@@ -14,6 +14,7 @@ jobs:
 
       - name: Run Lighthouse CI
         env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
           VERCEL_PROTECTION_BYPASS: ${{ secrets.VERCEL_PROTECTION_BYPASS }}
         run: |
           if [ -z "${{ github.event.deployment_status.target_url }}" ]; then
