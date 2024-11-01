@@ -13,4 +13,9 @@ jobs:
         run: npm install
 
       - name: Run Lighthouse CI
-        run: npx lhci autorun --url=${{ github.event.deployment_status.target_url }}
+        run: |
+          if [ -z "${{ github.event.deployment_status.target_url }}" ]; then
+            echo "Error: No deployment URL found"
+            exit 1
+          fi
+          npx lhci autorun --collect.url=${{ github.event.deployment_status.target_url }} --collect.staticDistDir=./
