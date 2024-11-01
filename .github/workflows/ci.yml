@@ -6,7 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.deployment_status.state == 'success'
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: npm install
 
       - name: Run Lighthouse CI
-        run: npx lhci autorun --url=${{ github.event.deployment_status.target_url }}
+        run: |
+          if [ -z "${{ github.event.deployment_status.target_url }}" ]; then
+            echo "Error: No deployment URL found"
+            exit 1
+          fi
+          npx lhci autorun --url=${{ github.event.deployment_status.target_url }}
