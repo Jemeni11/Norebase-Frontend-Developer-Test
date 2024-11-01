@@ -23,7 +23,7 @@ jobs:
         run: npm run build
 
       - name: Start server
-        run: npm start & sleep 15
+        run: npm dev & sleep 15
 
       - name: Run Lighthouse CI
         env:
