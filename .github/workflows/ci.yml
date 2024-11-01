@@ -1,0 +1,12 @@
+name: Lighthouse CI
+on: deployment_status
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    if: github.event.deployment_status.state == 'success'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run Lighthouse CI
+        run: npx lhci autorun --url=${{ github.event.deployment_status.target_url }}
