@@ -1,10 +1,9 @@
 name: Lighthouse CI
-on: deployment_status
+on: [push]
 
 jobs:
   lighthouse:
     runs-on: ubuntu-latest
-    if: github.event.deployment_status.state == 'success'
     steps:
       - name: Check out code
         uses: actions/checkout@v4
@@ -12,16 +11,12 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Build site
+        run: npm run build
+
       - name: Run Lighthouse CI
-        env:
-          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
-          VERCEL_PROTECTION_BYPASS: ${{ secrets.VERCEL_PROTECTION_BYPASS }}
         run: |
-          if [ -z "${{ github.event.deployment_status.target_url }}" ]; then
-            echo "Error: No deployment URL found"
-            exit 1
-          fi
+          npm run preview & sleep 5 && \
           npx lhci autorun \
-            --collect.url=${{ github.event.deployment_status.target_url }} \
-            --collect.staticDistDir=./ \
-            --collect.headers.x-vercel-protection-bypass=${VERCEL_PROTECTION_BYPASS}
+            --collect.startServerCommand="npm run preview" \
+            --collect.url=http://localhost:5173
