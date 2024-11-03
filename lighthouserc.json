@@ -1,7 +1,9 @@
 {
   "ci": {
     "collect": {
-      "numberOfRuns": 3
+      "numberOfRuns": 3,
+      "startServerCommand": "npm run preview",
+      "url": ["http://localhost:5173"]
     },
     "assert": {
       "preset": "lighthouse:recommended"
