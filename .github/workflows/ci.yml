@@ -19,4 +19,4 @@ jobs:
           npm run preview & sleep 5 && \
           npx lhci autorun \
             --collect.startServerCommand="npm run preview" \
-            --collect.url=http://localhost:5173
+            --collect.url=http://localhost:4173
