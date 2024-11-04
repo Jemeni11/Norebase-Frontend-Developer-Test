@@ -1,5 +1,5 @@
 name: Lighthouse CI
-on: [push]
+on: [push, pull_request]
 
 jobs:
   lighthouse:
@@ -14,9 +14,10 @@ jobs:
       - name: Build site
         run: npm run build
 
+      - name: Start server
+        run: npm run preview & sleep 5
+
       - name: Run Lighthouse CI
-        run: |
-          PORT=$(npm run preview & sleep 2 && lsof -i -P | grep LISTEN | grep node | awk '{print $9}' | cut -d ':' -f2) && \
-          npx lhci autorun \
-            --collect.startServerCommand="npm run preview" \
-            --collect.url="http://localhost:$PORT"
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        run: npx lhci autorun
