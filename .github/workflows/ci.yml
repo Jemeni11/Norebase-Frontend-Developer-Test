@@ -16,7 +16,7 @@ jobs:
 
       - name: Run Lighthouse CI
         run: |
-          npm run preview & sleep 5 && \
+          PORT=$(npm run preview & sleep 2 && lsof -i -P | grep LISTEN | grep node | awk '{print $9}' | cut -d ':' -f2) && \
           npx lhci autorun \
             --collect.startServerCommand="npm run preview" \
-            --collect.url=http://localhost:4173
+            --collect.url="http://localhost:$PORT"
